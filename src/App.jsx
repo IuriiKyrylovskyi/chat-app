@@ -4,8 +4,9 @@ import SingIn from './SingIn';
 import './App.css';
 
 import firebase from 'firebase/app'
-import 'firebase/firestore';
+// import 'firebase/firestore';
 import 'firebase/auth';
+import 'firebase/analytics';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
 // import { useCollectionData } from 'react-firebase-hooks/firestore';
@@ -21,6 +22,7 @@ firebase.initializeApp({
 });
 
 const auth = firebase.auth();
+const analytics = firebase.analytics();
 
 function App() {
   const [user] = useAuthState(auth);

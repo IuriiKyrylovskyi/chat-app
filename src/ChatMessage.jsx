@@ -1,5 +1,6 @@
 import React from 'react';
-// import 'firebase/firestore';
+import firebase from 'firebase/app';
+import 'firebase/firestore';
 import 'firebase/auth';
 
 const ChatMessage = ({ auth, message }) => {
