@@ -1,9 +1,10 @@
 import React from 'react';
 import ChatRoom from './ChatRoom';
 import SingIn from './SingIn';
+import SignOut from './SignOut';
 import './App.css';
 
-import firebase from 'firebase/app'
+import firebase from 'firebase/app';
 // import 'firebase/firestore';
 import 'firebase/auth';
 import 'firebase/analytics';
@@ -29,17 +30,14 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header"></header>
+      <header className="App-header">
+        <h1>⚛️🔥💬</h1>
+        <SignOut auth={auth} />
+      </header>
 
       <section>{user ? <ChatRoom auth={auth} /> : <SingIn auth={auth} />}</section>
     </div>
   );
-}
-
-function signOut() {
-  return auth.currentUser && (
-    <button onClick={()=>auth.signOut()}>Sign out</button>
-  )
 }
 
 export default App;
