@@ -3,6 +3,7 @@ import ChatMessage from './ChatMessage';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
+import { FaDove } from 'react-icons/fa';
 
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
@@ -27,6 +28,8 @@ const ChatRoom = ({ auth }) => {
       uid,
       photoURL,
     });
+
+    setFormValue('');
   };
 
   return (
@@ -37,7 +40,7 @@ const ChatRoom = ({ auth }) => {
 
       <form onSubmit={sendMessage}>
         <input value={formValue} onChange={e => setFormValue(e.target.value)} />
-        <button type="submit"></button>
+        <button type="submit"><FaDove /></button>
       </form>
     </>
   );
