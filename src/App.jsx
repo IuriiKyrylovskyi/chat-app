@@ -21,8 +21,6 @@ firebase.initializeApp({
 });
 
 const auth = firebase.auth();
-const firestore = firebase.firestore();
-
 
 function App() {
   const [user] = useAuthState(auth);
@@ -31,7 +29,7 @@ function App() {
     <div className="App">
       <header className="App-header"></header>
 
-      <section>{user ? <ChatRoom /> : <SingIn auth={auth} />}</section>
+      <section>{user ? <ChatRoom auth={auth} /> : <SingIn auth={auth} />}</section>
     </div>
   );
 }
