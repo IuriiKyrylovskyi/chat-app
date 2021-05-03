@@ -45,7 +45,7 @@ const ChatRoom = ({ auth }) => {
 
       <form onSubmit={sendMessage}>
         <input value={formValue} onChange={e => setFormValue(e.target.value)} />
-        <button type="submit">
+        <button type="submit" disabled={!formValue}>
           <FaDove />
         </button>
       </form>
