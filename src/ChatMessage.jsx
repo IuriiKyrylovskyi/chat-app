@@ -5,9 +5,8 @@ import 'firebase/auth';
 
 const ChatMessage = ({ auth, message }) => {
   const { text, uid, photoURL } = message;
-  // const { uid } = auth.currentUser;
-
-  const messageClass = uid => (auth.currentUser.uid ? 'sent' : 'received');
+  const user = firebase.auth().currentUser;
+  const messageClass = uid === (user.uid ? 'sent' : 'received');
 
   return (
     <div className={`message ${messageClass}`}>

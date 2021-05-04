@@ -1,15 +1,14 @@
 import React, { useState, useRef } from 'react';
 import ChatMessage from './ChatMessage';
+import { FaDove } from 'react-icons/fa';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
-import { FaDove } from 'react-icons/fa';
 
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
-const firestore = firebase.firestore();
-
 const ChatRoom = ({ auth }) => {
+  const firestore = firebase.firestore();
   const dummy = useRef();
 
   const messagesRef = firestore.collection('messages');
@@ -22,7 +21,8 @@ const ChatRoom = ({ auth }) => {
   const sendMessage = async e => {
     e.preventDefault();
 
-    const { uid, photoURL } = auth.currentUser;
+    const { uid, photoURL } = firebase.auth().currentUser;
+    // const { uid, photoURL } = auth.currentUser;
 
     await messagesRef.add({
       text: formValue,

@@ -3,11 +3,9 @@ import ChatRoom from './ChatRoom';
 import SingIn from './SingIn';
 import SignOut from './SignOut';
 import './App.css';
-
 import firebase from 'firebase/app';
-// import 'firebase/firestore';
+import 'firebase/firestore';
 import 'firebase/auth';
-import 'firebase/analytics';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
 // import { useCollectionData } from 'react-firebase-hooks/firestore';
@@ -22,12 +20,11 @@ firebase.initializeApp({
   measurementId: 'G-Z4Y73EKXMB',
 });
 
-const auth = firebase.auth();
-const analytics = firebase.analytics();
 
-function App() {
+const App = () => {
+  const auth = firebase.auth();
   const [user] = useAuthState(auth);
-
+  
   return (
     <div className="App">
       <header className="App-header">
@@ -35,7 +32,7 @@ function App() {
         <SignOut auth={auth} />
       </header>
 
-      <section>{user ? <ChatRoom auth={auth} /> : <SingIn auth={auth} />}</section>
+      <section>{user ? <ChatRoom /> : <SingIn auth={auth} />}</section>
     </div>
   );
 }
