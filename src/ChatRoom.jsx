@@ -7,7 +7,7 @@ import 'firebase/auth';
 
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
-const ChatRoom = ({ auth }) => {
+const ChatRoom = () => {
   const firestore = firebase.firestore();
   const dummy = useRef();
 
@@ -22,7 +22,6 @@ const ChatRoom = ({ auth }) => {
     e.preventDefault();
 
     const { uid, photoURL } = firebase.auth().currentUser;
-    // const { uid, photoURL } = auth.currentUser;
 
     await messagesRef.add({
       text: formValue,
@@ -39,7 +38,7 @@ const ChatRoom = ({ auth }) => {
   return (
     <>
       <main>
-        {messages && messages.map(msg => <ChatMessage key={msg.id} auth={auth} message={msg} />)}
+        {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
         <span ref={dummy}></span>
       </main>
 

@@ -3,7 +3,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 
-const ChatMessage = ({ auth, message }) => {
+const ChatMessage = ({ message }) => {
   const { text, uid, photoURL } = message;
   const user = firebase.auth().currentUser;
   const messageClass = uid === (user.uid ? 'sent' : 'received');
