@@ -3,7 +3,7 @@ import ChatMessage from './ChatMessage';
 import { FaDove } from 'react-icons/fa';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
-import 'firebase/auth';
+// import 'firebase/auth';
 
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
@@ -12,7 +12,7 @@ const ChatRoom = ({ auth }) => {
   const dummy = useRef();
 
   const messagesRef = firestore.collection('messages');
-  const query = messagesRef.orderBy('createdAt').limit(25);
+  const query = messagesRef.orderBy('createdAt').limitToLast(25);
 
   const [messages] = useCollectionData(query, { idField: 'id' });
 
@@ -39,7 +39,7 @@ const ChatRoom = ({ auth }) => {
   return (
     <>
       <main>
-        {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
+        {messages && messages.map(msg => <ChatMessage key={msg.id} auth={auth} message={msg} />)}
         <span ref={dummy}></span>
       </main>
 

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import firebase from 'firebase/app';
-import 'firebase/firestore';
-import 'firebase/auth';
+// import firebase from 'firebase/app';
+// import 'firebase/firestore';
+// import 'firebase/auth';
 
 const SignOut = ({ auth }) => {
   // const auth = firebase.auth();
