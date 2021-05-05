@@ -29,10 +29,10 @@ const App = () => {
     <div className="App">
       <header className="App-header">
         <h1>⚛️🔥💬</h1>
-        <SignOut />
+        <SignOut auth={auth} />
       </header>
 
-      <section>{user ? <ChatRoom /> : <SingIn />}</section>
+      <section>{user ? <ChatRoom auth={auth} /> : <SingIn auth={auth} />}</section>
     </div>
   );
 }
