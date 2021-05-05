@@ -3,7 +3,6 @@ import ChatMessage from './ChatMessage';
 import { FaDove } from 'react-icons/fa';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
-// import 'firebase/auth';
 
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
@@ -22,7 +21,6 @@ const ChatRoom = ({ auth }) => {
     e.preventDefault();
 
     const { uid, photoURL } = auth.currentUser;
-    // const { uid, photoURL } = firebase.auth().currentUser;
 
     await messagesRef.add({
       text: formValue,
